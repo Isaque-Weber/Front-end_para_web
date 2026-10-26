@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="600px" height="400px">
+                    <title>Bolo de chocolate com cereja e laço</title>
+                    
+                    <!-- Prato -->
+                    <ellipse cx="100" cy="175" rx="85" ry="12" fill="#D3C3A3"/>
+                    <ellipse cx="100" cy="172" rx="85" ry="12" fill="#F5EBE0"/>
+
+                    <!-- Camada Base do Bolo (Chocolate ao Leite) -->
+                    <rect x="40" y="110" width="120" height="60" rx="6" fill="#8B4513"/>
+                    <rect x="40" y="160" width="120" height="10" rx="4" fill="#6B340E"/> <!-- Sombra inferior -->
+
+                    <!-- Camada Superior do Bolo (Caramelo / Marrom Claro) -->
+                    <rect x="55" y="60" width="90" height="50" rx="6" fill="#D2691E"/>
+                    <rect x="55" y="100" width="90" height="10" rx="4" fill="#B35919"/> <!-- Sombra inferior -->
+
+                    <!-- Cobertura de Chocolate Amargo com Gotas (Drip Cake) -->
+                    <g fill="#4A2511">
+                        <rect x="55" y="60" width="90" height="15" rx="6"/>
+                        <rect x="55" y="70" width="90" height="5"/>
+                        
+                        <!-- Gota 1 -->
+                        <rect x="58" y="70" width="12" height="12"/>
+                        <circle cx="64" cy="82" r="6"/>
+                        
+                        <!-- Gota 2 -->
+                        <rect x="79" y="70" width="10" height="20"/>
+                        <circle cx="84" cy="90" r="5"/>
+                        
+                        <!-- Gota 3 -->
+                        <rect x="100" y="70" width="10" height="10"/>
+                        <circle cx="105" cy="80" r="5"/>
+                        
+                        <!-- Gota 4 -->
+                        <rect x="119" y="70" width="12" height="22"/>
+                        <circle cx="125" cy="92" r="6"/>
+                        
+                        <!-- Gota 5 -->
+                        <rect x="136" y="70" width="8" height="8"/>
+                        <circle cx="140" cy="78" r="4"/>
+                    </g>
+
+                    <!-- Cereja no Topo -->
+                    <g id="cereja">
+                        <!-- Talo -->
+                        <path d="M 100 45 Q 110 20 125 28" fill="none" stroke="#2E7D32" stroke-width="2.5" stroke-linecap="round"/>
+                        <!-- Fruta -->
+                        <circle cx="100" cy="48" r="12" fill="#D2042D"/>
+                        <!-- Brilho -->
+                        <circle cx="95" cy="44" r="3.5" fill="#FF8C94" opacity="0.9"/>
+                    </g>
+
+                    <!-- Lacinho Decorativo -->
+                    <g id="laco">
+                        <!-- Perna Esquerda -->
+                        <path d="M 97 135 L 82 155 L 92 158 Z" fill="#FFB6C1"/>
+                        <!-- Perna Direita -->
+                        <path d="M 103 135 L 118 155 L 108 158 Z" fill="#FFB6C1"/>
+                        <!-- Laço Esquerdo -->
+                        <path d="M 95 135 C 60 110, 60 160, 95 135" fill="#FFB6C1"/>
+                        <!-- Laço Direito -->
+                        <path d="M 105 135 C 140 110, 140 160, 105 135" fill="#FFB6C1"/>
+                        <!-- Nó Central -->
+                        <circle cx="100" cy="135" r="6" fill="#FF69B4"/>
+                        <circle cx="98" cy="133" r="1.5" fill="#FFFFFF" opacity="0.6"/> <!-- Brilho no nó -->
+                    </g>
+                    </svg>
