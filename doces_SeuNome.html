@@ -119,26 +119,27 @@
                 <form action="#" method="get">
                     <div class="campo">
                         <label for="nome">Seu nome</label>
-                        <input type="text" id="nome" name="nome" placeholder="Ex.: Ana Souza" required>
+                        <input type="text" id="nome" name="nome" placeholder="Ex.: Ana Souza" required
+                            pattern="[\p{L}' \-]{2,60}" title="Use apenas letras e espaços (2 a 60 caracteres)">
                     </div>
 
                     <div class="campo">
                         <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" placeholder="voce@exemplo.com" required>
+                        <input type="email" id="email" name="email" placeholder="voce@exemplo.com" required
+                            pattern="[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}"
+                            title="Digite um e-mail válido, como voce@exemplo.com">
                     </div>
 
                     <div class="campo">
                         <label for="telefone">Telefone</label>
-                        <input type="tel" id="telefone" name="telefone" placeholder="(21) 90000-0000">
+                        <input type="tel" id="telefone" name="telefone" placeholder="(21) 90000-0000"
+                            pattern="\(\d{2}\) 9?\d{4}-\d{4}" title="Use o formato (21) 90000-0000">
                     </div>
 
                     <div class="campo">
-                        <label for="assunto">Assunto</label>
-                        <select id="assunto" name="assunto">
-                            <option value="encomenda">Fazer uma encomenda</option>
-                            <option value="orcamento">Pedir um orçamento</option>
-                            <option value="duvida">Tirar uma dúvida</option>
-                        </select>
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem" rows="5" minlength="10" maxlength="500"
+                            placeholder="Conte o que você precisa e para quando."></textarea>
                     </div>
 
                     <fieldset class="campo">
@@ -159,6 +160,38 @@
             </div>
         </section>
     </main>
+    <script>
+        const nome = document.getElementById('nome');
+        const email = document.getElementById('email');
+        const telefone = document.getElementById('telefone');
+
+        // Nome: remove tudo que não for letra, espaço, apóstrofo ou hífen
+        nome.addEventListener('input', () => {
+            nome.value = nome.value.replace(/[^\p{L}' \-]/gu, '');
+        });
+
+        // E-mail: não permite espaços
+        email.addEventListener('input', () => {
+            email.value = email.value.replace(/\s/g, '');
+        });
+
+        // Telefone: só números, formatados como (21) 90000-0000
+        telefone.addEventListener('input', () => {
+            const d = telefone.value.replace(/\D/g, '').slice(0, 11);
+            let formatado = d;
+
+            if (d.length > 6) {
+                const corte = d.length === 11 ? 7 : 6;
+                formatado = `(${d.slice(0, 2)}) ${d.slice(2, corte)}-${d.slice(corte)}`;
+            } else if (d.length > 2) {
+                formatado = `(${d.slice(0, 2)}) ${d.slice(2)}`;
+            } else if (d.length > 0) {
+                formatado = `(${d}`;
+            }
+
+            telefone.value = formatado;
+        });
+    </script>
 </body>
 
 </html>
